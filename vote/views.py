@@ -1,20 +1,35 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 
 import getopt
 import random
 import sys
 import time
 import json
+import requests
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 from pynamodb.connection import Connection
 
+@csrf_exempt
 def updateOrder(request):
+     body = request.body.decode('utf-8')
+     params = json.loads(body)
+     shop_domain = params.get('shop_domain', 'nothing')
+     print(shop_domain)
      conn = Connection(region='us-east-1')
      table = conn.list_tables()
-     personal_data = conn.scan('updateOrder')
+     personal_data = conn.query('updateOrder', shop_domain)
+
+     if personal_data=={}:
+          data = {
+               'status': 'Failure'
+          }
+          dump = json.dumps(data)
+          return HttpResponse(dump, content_type='application/json')
+     print(personal_data)
      for item in personal_data['Items']:
           print(item['username']['S'])
           comment_numper = 4
@@ -60,4 +75,8 @@ def updateOrder(request):
           ActionChains(driver).move_to_element(logout_elem).click().perform()
 
           driver.close()
-     return HttpResponse("Hello, world. Well Done.")
+     data = {
+          'status': 'Success'
+     }
+     dump = json.dumps(data)
+     return HttpResponse(dump, content_type='application/json')
