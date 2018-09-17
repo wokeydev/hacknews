@@ -18,6 +18,10 @@ def updateOrder(request):
      body = request.body.decode('utf-8')
      params = json.loads(body)
      shop_domain = params.get('shop_domain', 'nothing')
+     order_status = params.get('order_status', 'nothing')  #use in future
+     is_digital = params.get('is_digital', False) #use in future
+     shipping_company = params.get('shipping_company', 'nothing') #use in future
+     tracking_no = params.get('tracking_no', 'nothing') #use in future
      print(shop_domain)
      conn = Connection(region='us-east-1')
      table = conn.list_tables()
