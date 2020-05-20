@@ -59,7 +59,7 @@ geocoder==1.38.1
 guacamole==0.9.2
 html5lib==1.0.1
 htmlmin==0.1.12
-httplib2==0.9.1
+httplib2==0.18.0
 idna==2.7
 itsdangerous==0.24
 itypes==1.1.0
