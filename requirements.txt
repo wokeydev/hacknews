@@ -141,7 +141,7 @@ unity-scope-virtualbox==0.1
 unity-scope-yelp==0.1
 unity-scope-zotero==0.1
 uritemplate==3.0.0
-urllib3==1.23
+urllib3==1.26.5
 usb-creator==0.3.0
 virtualenv==15.0.1
 wagtail==2.2.1
