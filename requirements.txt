@@ -1,6 +1,6 @@
 alembic==1.0.0
 apturl==0.5.2
-arrow==0.12.1
+arrow==0.15.1
 asn1crypto==0.24.0
 awscli==1.11.13
 Babel==2.3.4
