@@ -69,7 +69,7 @@ language-selector==0.1
 linecache2==1.0.0
 louis==2.6.4
 lxml==3.5.0
-Mako==1.0.7
+Mako==1.2.2
 Markdown==2.6.11
 MarkupSafe==1.0
 oauthlib==2.0.6
